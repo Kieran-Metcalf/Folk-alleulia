@@ -1,0 +1,155 @@
+# Christopher Walker
+
+# Folk Alleluia (Premananda)
+
+# Coded by Kieran Metcalf, thank you Robin Newman
+
+# Not too fast
+use_bpm 90
+use_synth_defaults release: 1, amp: 0.7, cutoff: 90
+use_synth :pretty_bell
+
+# Each eight bar Alleluia is repeated
+
+# Alleluia
+2.times do
+  
+  # First start a thread for the first 8 bars of the bass left hand part
+  in_thread do
+    use_synth_defaults release: 1, amp: 0.7, cutoff: 90
+    use_synth :dtri
+    play chord(:E3, :minor)#b1
+    sleep 2
+    play chord(:A3, :minor)#b1
+    sleep 2
+    play chord(:B3, :minor)#b2
+    sleep 2
+    play chord(:E3, :minor)#b2
+    sleep 2
+    play chord(:A3, :minor)#b3
+    sleep 4
+    play chord(:D3, :major)#b4
+    sleep 2
+    play chord(:B3, :major)#b4
+    sleep 2
+    play chord(:E3, :minor)#b5
+    sleep 2
+    play chord(:B3, :minor)#b5
+    sleep 2
+    play chord(:C3, :major)#b6
+    sleep 2
+    play chord(:G3, :major)#b6
+    sleep 2
+    play chord(:G3, :major)#b7
+    sleep 2
+    play chord(:A3, :minor)#b7
+    sleep 2
+    play chord(:B3, :minor)#b8
+    sleep 2
+    play chord(:E3, :minor)#b8
+  end
+  
+# Play concurrently the first 8 bars of the right hand part
+  play_pattern_timed [0,67,67,67],[0.5]#b1
+  play_pattern_timed [69,67,66,64],[0.5]#b1
+  play_pattern_timed [0,62,62,59],[0.5]#b2
+  play_pattern_timed [64],[2]#b2
+  play_pattern_timed [0,69,69,71,72,71,69,67],[0.5]#b3
+  play_pattern_timed [0,66,67,69],[0.5]#b4
+  play_pattern_timed [71],[2]#b4
+  play_pattern_timed [0,76,76,71],[0.5]#b5
+  play_pattern_timed [74,71],[1]#b5
+  play_pattern_timed [0,76,76,71],[0.5]#b6
+  play_pattern_timed [74],[2]#b6
+  play_pattern_timed [0],[0.5]#b7
+  play_chord [67,71]#b7
+  sleep 0.5
+  play_chord [67,71]#b7
+  sleep 0.5
+  play_chord [67,71]#b7
+  sleep 0.5
+  play_chord [69,72]#b7
+  sleep 0.5
+  play_chord [67,71]#b7
+  sleep 0.5
+  play_chord [66,69]#b7
+  sleep 0.5
+  play_chord [64,67]#b7
+  sleep 0.5
+  play_pattern_timed [0],[0.5]#b8
+  play_chord [62,66]#b8
+  sleep 0.5
+  play_chord [62,66]#b8
+  sleep 0.5
+  play_chord [59,67]#b8
+  sleep 0.5
+  play_pattern_timed [64],[2]#b8
+end
+
+# Start a new thread for 'Glory to the Father... ' of the left hand part
+in_thread do
+  play chord(:E3, :minor)
+  sleep 4
+  play chord(:D3, :major)
+  sleep 2
+  play chord(:E3, :minor)
+  sleep 2
+  play chord(:E3, :minor)
+  sleep 2
+  play chord(:G3, :major)
+  sleep 2
+  play chord(:D3, :major)
+  sleep 2
+  play chord(:E3, :minor)
+  sleep 2
+end
+
+# Play concurrently 'Glory to the Father... ' of the right hand part the first six
+play_pattern_timed [64,71,71,71,69,71],[0.5,0.5,0.75,0.25,0.5,1.5]#b1
+play_pattern_timed [69,66,62,62,64],[0.5,0.5,0.75,0.25,2]#b2
+play_pattern_timed [71,71,71,76,74,71],[0.5,0.5,0.75,0.25,0.5,1.5]#b3
+play_pattern_timed [69,66,62,62,64],[0.5,0.5,0.75,0.25,2]#b4
+
+# Start a new thread for 'I call your friends... ' of the left hand part
+in_thread do
+  play chord(:E3, :minor)
+  sleep 4
+  play chord(:D3, :major)
+  sleep 4
+  play chord(:C3, :major)
+  sleep 2
+  play chord(:A3, :minor)
+  sleep 2
+  play chord(:B3, :minor)
+  sleep 2
+  play chord(:E3, :minor)
+  sleep 2
+end
+
+# Play concurrently 'I call your friends... ' of the right hand part the first six
+play_pattern_timed [64,64,64,64,64],[0.5,0.5,0.5,2,0.5]#b1
+play_pattern_timed [66,67,69,66,62],[0.5,0.5,0.5,1.5,0.5]#b2
+play_pattern_timed [64,66,67,69,71,69,67],[0.5,0.5,0.5,0.5,1,0.5,0.5]#b3
+play_pattern_timed [66,67,64],[1,1,2]#b4
+
+# Start a new thread for 'Open our hearts... ' of the left hand part
+in_thread do
+  play chord(:E3, :minor)
+  sleep 4
+  play chord(:A3, :major)
+  sleep 2
+  play chord(:D3, :major)
+  sleep 2
+  play chord(:E3, :minor)
+  sleep 4
+end
+
+# Play concurrently 'Open our hearts... ' of the right hand part the first six
+play_pattern_timed [64,64,71,69,67,64],[0.5,0.5,0.5,1,0.5,1]#b1
+play_pattern_timed [0,64,64,66,67,69,],[0.5,0.25,0.25,0.5,0.5,1,]#b2
+play_chord [67,71]#b2
+sleep 0.5
+play_chord [66,74]#b2
+sleep 0.5
+play_chord [64,76]#b3
+sleep 4
